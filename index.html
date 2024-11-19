@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site</title>
+    <link rel="stylesheet" href="assets/main.css">
+    <link rel="stylesheet" href="assets/responsive-grid.css">
+    <script defer src="assets/main.js" defer></script>
+</head>
+
+<body>
+    <header id="start">
+        <h1>Pinguins</h1>
+    </header>
+    <aside>
+        <div>
+            <a href="#start">Início</a>
+            <a href="#rei">Pinguim-rei</a>
+            <a href="#galapagos">Pinguim-das-galápagos</a>
+            <a href="#barbicha">Pinguim-de-barbicha</a>
+            <a href="chat.html">Amantes de pinguim</a>
+        </div>
+    </aside>
+    <main>
+        <h2 id="rei">Pinguim-rei</h2>
+        <div class="gallery" data-folder="rei" data-total="10"></div>
+
+        <h2 id="galapagos">Pinguim-das-galápagos</h2>
+        <div class="gallery" data-folder="galapagos" data-total="10"></div>
+
+        <h2 id="barbicha">Pinguim-barbicha</h2>
+        <div class="gallery" data-folder="barbicha" data-total="10"></div>
+    </main>
+    <footer></footer>
+
+    <dialog class="gallery-image-modal">
+        <button class="bt-close"></button>
+        <div class="content"></div>
+        <button class="bt-prev"><=</button>
+        <button class="bt-next">=></button>
+    </dialog>
+
+</body>
+
+</html>

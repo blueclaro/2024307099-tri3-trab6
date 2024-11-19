@@ -1,0 +1,137 @@
+header {
+    grid-area: header;
+}
+
+aside {
+    grid-area: aside;
+}
+
+main {
+    grid-area: content;
+}
+
+footer {
+    grid-area: footer;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 20vh 1fr 100px;
+    grid-template-areas: "header header" "aside  content" "footer footer";
+    min-height: 100vh;
+    margin: 0;
+    border: 0;
+}
+
+main .gallery {
+    padding: 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+main .gallery>div {
+    border: 2px solid #1f1a17;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    transition: ease-in-out .3s;
+}
+
+main .gallery>div:first-child {
+    grid-area: span 2 / span 2;
+    height: 215px;
+}
+
+main .gallery>div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+main .gallery>div:hover {
+    transform: scale(1.5);
+    z-index: 99;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+main .gallery:hover>div:not(:hover) {
+    transform: scale(.95);
+    transition: .15s;
+}
+
+.gallery-image-modal {
+    border-radius: 5px;
+    border: 1px solid #1f1a17;
+    position: fixed;
+    overflow: unset;
+}
+
+.gallery-image-modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(2px);
+}
+
+.gallery-image-modal .bt-close {
+    --size: 2.5rem;
+    --translate: calc(var(--size) / 3 * -1);
+    height: var(--size);
+    width: var(--size);
+    background-color: #ffffff;
+    border-radius: 50%;
+    color: transparent;
+    position: absolute;
+    right: var(--translate);
+    top: var(--translate);
+    cursor: pointer;
+}
+
+.gallery-image-modal .bt-close::after {
+    color: #000000;
+    content: "✕";
+    font-size: calc(var(--size) / 2);
+}
+
+.gallery-image-modal .bt-prev {
+    --size: 2.5rem;
+    --translate: calc(var(--size) / 3 * -1);
+    height: var(--size);
+    width: var(--size);
+    left: var(--translate);
+    bottom: var(--translate);
+    background-color: #ffffff;
+    border-radius: 50%;
+    color: #000000;
+    cursor: pointer;
+    position: absolute;
+}
+
+.gallery-image-modal .bt-next {
+    --size: 2.5rem;
+    --translate: calc(var(--size) / 3 * -1);
+    height: var(--size);
+    width: var(--size);
+    right: var(--translate);
+    bottom: var(--translate);
+    background-color: #ffffff;
+    border-radius: 50%;
+    color: #000000;
+    cursor: pointer;
+    position: absolute;
+}
+
+.gallery-image-modal .content img {
+    max-height: 80vh;
+    max-width: 80vh;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        grid-template-areas: "header" "aside content" "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: 125px 1fr 125px;
+    }
+}
